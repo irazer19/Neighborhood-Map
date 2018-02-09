@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <title>Neighborhood map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Creating the Navigation bar -->
+    <div class="container-fluid navigation">
+        <nav class="nav-list">
+            <h4 id="hambar" data-bind="click: nav"><i class="fa fa-bars"></i></h4>
+            <h4 class="text-center">That's my Neighborhood <i class="fa fa-map-marker"></i></h4>
+        </nav>
+    </div>
+
+    <!-- Creating the list item -->
+
+    <div class="container-fluid mainContent">
+        <div class="row">
+            <div class="col-sm-3 sideList" id="menu">
+                <!-- Input Search field -->
+                <input type="search" class="form-control search" placeholder="Search" data-bind="event: { keyup: filter }, value: val, valueUpdate: 'afterkeydown'">
+                <!-- Displaying all the locations using knockout.js -->
+                <ul data-bind="foreach: locations">
+                    <li data-bind="text: title, click: $parent.openInfo" class="items"></li>
+                </ul>
+                
+                <hr>
+                <!-- Displaying wikipedia links respective to the place -->
+                <h5 class="title">What does <i class="fa fa-wikipedia-w"></i>ikipedia say?</h5>
+                <div>
+                    <!-- Displaying the Error message from the Ajax call -->
+                    <h6 class="text-danger" data-bind="text: error"></h6>
+                    <ul data-bind="foreach: wikiLinks" id="link" class="list-unstyled">
+                        <li class="wikiLink"><i class="fa fa-angle-double-right"></i> <a href="" data-bind="attr: { href: name }, text: name"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- This element contains the Google map -->
+            <div class="col-sm-9" id="map"></div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
+    <script src="viewmodel.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcpJQl_TMV8Z6-i643DqvGgHWC5FDwZU8&v=3&callback=initMap">
+    </script>
+</body>
+</html>

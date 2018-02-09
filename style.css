@@ -1,0 +1,107 @@
+/* Styling the index.html */
+
+html, body {
+
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* Styling the Navigation bar */
+.navigation {
+
+	background-color: #5b000d;
+	margin: 0;
+	padding: 0;
+	height: 55px;
+}
+
+.nav-list {
+
+	display: flex;
+	margin-left: 20px;
+}
+
+#hambar {
+
+	cursor: pointer;
+}
+
+h4 {
+	padding: 10px;
+	color: white;
+}
+
+/* Styling the main content */
+
+.mainContent {
+	
+	position: fixed;
+	height: 95vh;
+}
+
+#map {
+
+	height: 95vh;
+}
+
+.col-sm-3 {
+
+	overflow-y: auto;
+	height: 95vh;
+}
+
+/* Styling the menu/items section */
+.title {
+
+	padding-bottom: 20px;
+	color: #5b000d;
+}
+
+.search {
+
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+.items {
+
+	padding-top: 8px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.wikiLink {
+
+	padding-bottom: 10px;
+}
+
+.items:hover {
+
+	color: #7f0215;
+}
+
+.sideList {
+
+	background-color: #eaf4fc;
+	padding-top: 10px;
+	padding-bottom: 20px !important;
+}
+
+/* Making the app responsive */
+@media screen and (min-width: 590px) {
+
+	#hambar {
+
+		display: none;
+	}
+}
+
+@media screen and (max-width: 590px) {
+
+	h4 {
+
+		font-size: 1.3em;
+		padding-top: 17px;
+	}
+}
