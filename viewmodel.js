@@ -365,7 +365,7 @@ var map;
 var markers = [];
 var links = [];  // Stores all the links generated from Ajax call.
 
-function appViewModel() {
+function AppViewModel() {
     /* This object prototype gets binded by knockout.js.
        It tracks all the changes in the views and updates them automatically. */
 
@@ -396,7 +396,7 @@ function appViewModel() {
         // Filtering the markers on the map dynamically
         for(i=0; i<markers.length; i++) {
 
-            bool = true;  // Checks if the marker is present on the markers list.
+            var bool = true;  // Checks if the marker is present on the markers list.
 
             for(j=0; j<res.length; j++) {
 
@@ -462,7 +462,7 @@ function appViewModel() {
     };
 }
 
-var app = new appViewModel();  // Creating an instance of the prototype.
+var app = new AppViewModel();  // Creating an instance of the prototype.
 ko.applyBindings(app);  // Activating knockout.js
 
 
@@ -504,6 +504,14 @@ function initMap() {
     }
     map.fitBounds(bounds);
 }
+
+
+function mapError() {
+    /* Function to handle the error message from google maps api */
+
+    app.error("There was an error loading the map.");
+}
+
 
 function makeListener(marker) {
 
