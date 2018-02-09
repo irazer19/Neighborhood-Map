@@ -356,7 +356,7 @@ var styles = [
             }
         ]
     }
-]
+];
 
 
 /* This is the ViewModel section */
@@ -387,7 +387,7 @@ function appViewModel() {
 
         for(i=0; i<locations.length; i++) {
 
-            if((locations[i].title).toLowerCase().startsWith(self.val()) && self.val() != '') {
+            if((locations[i].title).toLowerCase().startsWith(self.val()) && self.val() !== '') {
 
                 res.push(locations[i]);
             }
@@ -407,7 +407,7 @@ function appViewModel() {
                 }
             }
 
-            if (bool == true && self.val() != "") {
+            if (bool === true && self.val() !== "") {
 
                 markers[i].setMap(null);  // Setting the marker to null if its not present in the filtered array.
             }
@@ -424,7 +424,7 @@ function appViewModel() {
             self.locations(res);
         }
 
-        if(self.val() == "") {
+        if(self.val() === "") {
 
             self.locations(locations);
         }
@@ -447,7 +447,7 @@ function appViewModel() {
         // To close all the previously opened.
         markers.forEach(function(mark) {
 
-            if (mark.open == true) {
+            if (mark.open === true) {
 
                 mark.setAnimation(null);
                 mark.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
@@ -503,7 +503,7 @@ function initMap() {
             markers.forEach(function(mark) {
                 if (mark.open == true) {
                     mark.setAnimation(null);
-                    mark.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+                    mark.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
                     mark.infowindow.close();
                 }
             });
