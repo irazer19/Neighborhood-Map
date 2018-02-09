@@ -497,25 +497,31 @@ function initMap() {
 
         // Push the marker to our array of markers.
         markers.push(marker);
-        // Create an onclick event to open an infowindow at each marker.
-        marker.addListener('click', function() {
-            // To close all the previously opened.
-            markers.forEach(function(mark) {
-                if (mark.open == true) {
-                    mark.setAnimation(null);
-                    mark.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
-                    mark.infowindow.close();
-                }
-            });
-            // Calling the info function to create and set marker Content.
-            var largeInfowindow = info(this);
-            // Calling the populateInfoWindow function to open the Info window.
-            populateInfoWindow(this);
-        });
+        makeListener(marker);
+
         // Handling the marker boundary.
         bounds.extend(markers[i].position);
     }
     map.fitBounds(bounds);
+}
+
+function makeListener(marker) {
+
+    // Create an onclick event to open an infowindow at each marker.
+    marker.addListener('click', function() {
+        // To close all the previously opened.
+        markers.forEach(function(mark) {
+            if (mark.open === true) {
+                mark.setAnimation(null);
+                mark.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+                mark.infowindow.close();
+            }
+        });
+        // Calling the info function to create and set marker Content.
+        var largeInfowindow = info(this);
+        // Calling the populateInfoWindow function to open the Info window.
+        populateInfoWindow(this);
+    });
 }
 
 
